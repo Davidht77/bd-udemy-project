@@ -1,0 +1,54 @@
+service: dynamodb-tables
+
+provider:
+  name: aws
+  runtime: nodejs18.x # Or any other runtime, this is just a placeholder as we are only defining resources
+  iam:
+    role: arn:aws:iam::385255784123:role/LabRole
+  region: us-east-1 # Specify your desired region
+
+resources:
+  Resources:
+    PersonasTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: personas_curses
+        AttributeDefinitions:
+          - AttributeName: tenant_id
+            AttributeType: S
+          - AttributeName: user_id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: tenant_id
+            KeyType: HASH
+          - AttributeName: user_id
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+
+    AccessTokensTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: accessTokens_curses
+        AttributeDefinitions:
+          - AttributeName: token
+            AttributeType: S
+        KeySchema:
+          - AttributeName: token
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+    CursosTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: cursos_curses
+        AttributeDefinitions:
+          - AttributeName: tenant_id
+            AttributeType: S
+          - AttributeName: curso_id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: tenant_id
+            KeyType: HASH
+          - AttributeName: curso_id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
