@@ -50,5 +50,5 @@ resources:
           - AttributeName: tenant_id
             KeyType: HASH
           - AttributeName: curso_id
-            KeyType: HASH
+            KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
