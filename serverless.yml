@@ -12,7 +12,7 @@ resources:
     PersonasTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: personas_curses
+        TableName: prod_user_curses
         AttributeDefinitions:
           - AttributeName: tenant_id
             AttributeType: S
@@ -28,7 +28,7 @@ resources:
     AccessTokensTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: accessTokens_curses
+        TableName: prod_accessTokens_curses
         AttributeDefinitions:
           - AttributeName: token
             AttributeType: S
@@ -40,7 +40,7 @@ resources:
     CursosTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: cursos_curses
+        TableName: prod_cursos_curses
         AttributeDefinitions:
           - AttributeName: tenant_id
             AttributeType: S
