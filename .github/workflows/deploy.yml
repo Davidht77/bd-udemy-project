@@ -19,8 +19,6 @@ jobs:
       - name: Install Serverless Framework
         run: npm install -g serverless
 
-      - name: Install project dependencies
-        run: npm install # If you have a package.json for your serverless project
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
