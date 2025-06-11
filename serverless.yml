@@ -25,6 +25,22 @@ resources:
             KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
 
+    ProdComprasTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: prod_compras_curses
+        AttributeDefinitions:
+          - AttributeName: tenant_id
+            AttributeType: S
+          - AttributeName: order_id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: tenant_id
+            KeyType: HASH
+          - AttributeName: order_id
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+
     AccessTokensTable:
       Type: AWS::DynamoDB::Table
       Properties:
@@ -35,6 +51,22 @@ resources:
         KeySchema:
           - AttributeName: token
             KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+
+    ProdComprasTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: prod_compras_curses
+        AttributeDefinitions:
+          - AttributeName: tenant_id
+            AttributeType: S
+          - AttributeName: order_id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: tenant_id
+            KeyType: HASH
+          - AttributeName: order_id
+            KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
 
     CursosTable:
@@ -50,5 +82,21 @@ resources:
           - AttributeName: tenant_id
             KeyType: HASH
           - AttributeName: curso_id
+            KeyType: RANGE
+        BillingMode: PAY_PER_REQUEST
+
+    ProdComprasTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: prod_compras_curses
+        AttributeDefinitions:
+          - AttributeName: tenant_id
+            AttributeType: S
+          - AttributeName: order_id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: tenant_id
+            KeyType: HASH
+          - AttributeName: order_id
             KeyType: RANGE
         BillingMode: PAY_PER_REQUEST
