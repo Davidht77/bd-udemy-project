@@ -16,7 +16,7 @@ resources:
     PersonasTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: $t_{self:custom.tablePrefix}_user
+        TableName: ${self:custom.tablePrefix}_user
         AttributeDefinitions:
           - AttributeName: tenant_id
             AttributeType: S
@@ -32,7 +32,7 @@ resources:
     AccessTokensTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: $t_{self:custom.tablePrefix}_accessTokens
+        TableName: ${self:custom.tablePrefix}_accessTokens
         AttributeDefinitions:
           - AttributeName: token
             AttributeType: S
@@ -44,7 +44,7 @@ resources:
     CursosTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: $t_{self:custom.tablePrefix}_cursos
+        TableName: ${self:custom.tablePrefix}_cursos
         AttributeDefinitions:
           - AttributeName: tenant_id
             AttributeType: S
@@ -60,7 +60,7 @@ resources:
     ProdComprasTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: $t_{self:custom.tablePrefix}_compras
+        TableName: ${self:custom.tablePrefix}_compras
         AttributeDefinitions:
           - AttributeName: tenant_id
             AttributeType: S
