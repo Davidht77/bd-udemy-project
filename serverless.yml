@@ -4,15 +4,19 @@ provider:
   name: aws
   runtime: nodejs18.x # Or any other runtime, this is just a placeholder as we are only defining resources
   iam:
-    role: arn:aws:iam::385255784123:role/LabRole
+    role: arn:aws:iam::367311722984:role/LabRole0
   region: us-east-1 # Specify your desired region
+  stage: dev  # valor por defecto si no se indica en línea de comandos
 
+custom:
+  tablePrefix: ${self:provider.stage}
+  
 resources:
   Resources:
     PersonasTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: prod_user_curses
+        TableName: $t_{self:custom.tablePrefix}_user
         AttributeDefinitions:
           - AttributeName: tenant_id
             AttributeType: S
@@ -28,7 +32,7 @@ resources:
     AccessTokensTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: prod_accessTokens_curses
+        TableName: $t_{self:custom.tablePrefix}_accessTokens
         AttributeDefinitions:
           - AttributeName: token
             AttributeType: S
@@ -40,7 +44,7 @@ resources:
     CursosTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: prod_cursos_curses
+        TableName: $t_{self:custom.tablePrefix}_cursos
         AttributeDefinitions:
           - AttributeName: tenant_id
             AttributeType: S
@@ -56,7 +60,7 @@ resources:
     ProdComprasTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: prod_compras_curses
+        TableName: $t_{self:custom.tablePrefix}_compras
         AttributeDefinitions:
           - AttributeName: tenant_id
             AttributeType: S
